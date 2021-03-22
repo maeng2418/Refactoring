@@ -48,8 +48,12 @@ const statement = (invoice, plays) => {
     return result;
   };
 
+  const playFor = (aPerformance) => {
+    return plays[aPerformance.playID];
+  };
+
   for (let perf of invoice.performances) {
-    const play = plays[perf.playID];
+    const play = playFor(perf);
     let thisAmount = amountFor(perf, play);
 
     // 포인트 적립
